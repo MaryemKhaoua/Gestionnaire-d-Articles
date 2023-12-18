@@ -9,8 +9,7 @@ class Article extends Connexion {
     private $id_user;
 
     public function createArticle($titre, $contenu, $date_creation) {
-        $stmt = $this->connexion()->prepare("INSERT INTO acticles (titre, contenu, date_ceation)
-                                            VALUES (:titre, :contenu, :date_ceation)");
+        $stmt = $this->connexion()->prepare("INSERT INTO acticles (titre, contenu, date_ceation) VALUES (:titre, :contenu, :date_ceation)");
         $stmt->bindParam(':titre', $titre);
         $stmt->bindParam(':contenu', $contenu);
         $stmt->bindParam(':date_ceation', $date_creation);
@@ -24,9 +23,7 @@ class Article extends Connexion {
     return $articles;
 }
     public function updateArticle($id, $titre, $contenu, $date_creation) {
-    $stmt = $this->connexion()->prepare("UPDATE acticles
-                                        SET titre = :titre, contenu = :contenu, date_ceation = :date_ceation
-                                        WHERE id = :id");
+    $stmt = $this->connexion()->prepare("UPDATE acticles SET titre = :titre, contenu = :contenu, date_ceation = :date_ceation WHERE id = :id");
     $stmt->bindParam(':id', $id);
     $stmt->bindParam(':titre', $titre);
     $stmt->bindParam(':contenu', $contenu);
