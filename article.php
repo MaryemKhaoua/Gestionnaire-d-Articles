@@ -23,7 +23,7 @@ class Article extends Connexion {
     $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $articles;
 }
-public function updateArticle($id, $titre, $contenu, $date_creation) {
+    public function updateArticle($id, $titre, $contenu, $date_creation) {
     $stmt = $this->connexion()->prepare("UPDATE acticles
                                         SET titre = :titre, contenu = :contenu, date_ceation = :date_ceation
                                         WHERE id = :id");
@@ -35,7 +35,7 @@ public function updateArticle($id, $titre, $contenu, $date_creation) {
     $stmt->execute();
 }
 
-public function deleteArticle($id) {
+    public function deleteArticle($id) {
     $stmt = $this->connexion()->prepare("DELETE FROM acticles WHERE id = :id");
     $stmt->bindParam(':id', $id);
 
