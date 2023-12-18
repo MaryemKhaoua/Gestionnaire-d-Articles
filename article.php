@@ -51,7 +51,7 @@ print_r($articles);
 
 $article->updateArticle(1, 'Tea', 'goooooooood', '2024-12-13');
 
-$article->deleteArticle(2);
+$article->deleteArticle(1);
 
 
 
