@@ -9,11 +9,11 @@ class Article extends Connexion {
     private $id_user;
 
     public function createArticle($titre, $contenu, $date_creation) {
-        $stmt = $this->connexion()->prepare("INSERT INTO acticles (titre, contenu, date_creation)
-                                            VALUES (:titre, :contenu, :date_creation)");
+        $stmt = $this->connexion()->prepare("INSERT INTO acticles (titre, contenu, date_ceation)
+                                            VALUES (:titre, :contenu, :date_ceation)");
         $stmt->bindParam(':titre', $titre);
         $stmt->bindParam(':contenu', $contenu);
-        $stmt->bindParam(':date_creation', $date_creation);
+        $stmt->bindParam(':date_ceation', $date_creation);
 
         $stmt->execute();
     }
@@ -25,12 +25,12 @@ class Article extends Connexion {
 }
 public function updateArticle($id, $titre, $contenu, $date_creation) {
     $stmt = $this->connexion()->prepare("UPDATE acticles
-                                        SET titre = :titre, contenu = :contenu, date_creation = :date_creation
+                                        SET titre = :titre, contenu = :contenu, date_ceation = :date_ceation
                                         WHERE id = :id");
     $stmt->bindParam(':id', $id);
     $stmt->bindParam(':titre', $titre);
     $stmt->bindParam(':contenu', $contenu);
-    $stmt->bindParam(':date_creation', $date_creation);
+    $stmt->bindParam(':date_ceation', $date_creation);
 
     $stmt->execute();
 }
@@ -49,9 +49,9 @@ $article->createArticle('Ataay', 'zwin bzf ', '2024-12-12');
 $articles = $article->readArticles();
 print_r($articles);
 
-$article->updateArticle(1, 'Tea', 'goooooooood', '2024-12-13');
+$article->updateArticle(2, 'Tea', 'goooooooood', '2024-12-13');
 
-$article->deleteArticle(1);
+$article->deleteArticle(3);
 
 
 
